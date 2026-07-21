@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": "7d7cd4cc-18a6-41f0-b861-1083753f2adf",
+    "title": "Amit",
+    "slug": "https://chatgpt.com/c/6a5f50db-d218-83e9-8827-1ceb9b082540",
+    "description": "1. Everything fully working.\n\n2. Create any missing API routes.\n\n3. Create missing utility functions.\n\n4. Create missing pages.\n\n5. Connect admin + public site.\n\n6. Make blogs created from admin instantly appear on the landing page.\n\n7. Ensure everything compiles with zero TypeScript errors.\n\nReturn complete code for every file that needs modification.",
+    "content": "1. Everything fully working.\n\n2. Create any missing API routes.\n\n3. Create missing utility functions.\n\n4. Create missing pages.\n\n5. Connect admin + public site.\n\n6. Make blogs created from admin instantly appear on the landing page.\n\n7. Ensure everything compiles with zero TypeScript errors.\n\nReturn complete code for every file that needs modification.",
+    "category": "Public Safety",
+    "image": "/images/blog/1784634481736-wallpaper.jpg",
+    "featured": true,
+    "createdAt": "2026-07-21T11:48:05.203Z",
+    "updatedAt": "2026-07-21T11:48:05.203Z",
+    "author": "Admin",
+    "readTime": "1 min read",
+    "published": true
+  },
+  {
+    "id": "e844b201-0936-4be9-8692-2df4c9bfd3d2",
+    "title": "Amit",
+    "slug": "Amit",
+    "description": "Amimt",
+    "content": "Amiyy",
+    "category": "Water Supply",
+    "image": "/images/blog/1784634733553-Screenshot-2026-05-28-131439.png",
+    "featured": true,
+    "createdAt": "2026-07-21T11:52:18.381Z",
+    "updatedAt": "2026-07-21T11:52:18.381Z",
+    "author": "Admin",
+    "readTime": "1 min read",
+    "published": true
+  }
+]

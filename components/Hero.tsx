@@ -42,20 +42,20 @@ export default function Hero() {
   return (
     <section
     id="home"
-    className="scroll-mt-28 relative overflow-hidden"
+    className="relative -isolate overflow-hidden scroll-mt-24 bg-gradient-to-b from-white via-slate-50 to-blue-50"
     >
 
       {/* Background Glow */}
 
-      <div className="absolute -top-52 -left-52 h-[650px] w-[650px] rounded-full bg-blue-500/15 blur-[140px]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,.10),transparent_34%),radial-gradient(circle_at_top_right,rgba(34,211,238,.08),transparent_38%)]" />
 
-      <div className="absolute -bottom-40 right-0 h-[700px] w-[700px] rounded-full bg-cyan-400/15 blur-[170px]" />
+      <div className="absolute left-1/2 top-[-200px] h-[800px] w-[800px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[160px]" />
 
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,.08),transparent_35%)]" />
+      <div className="absolute -bottom-32 right-0 h-[700px] w-[700px] rounded-full bg-cyan-400/08 blur-[160px]" />
 
       {/* Grid */}
 
-      <div className="relative max-w-7xl mx-auto px-6 pt-20 pb-24 grid lg:grid-cols-[1fr_1.1fr] items-center gap-16">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 pb-24 pt-12 sm:pt-14 lg:grid-cols-[1fr_1.1fr] lg:pt-16">
 
         {/* LEFT */}
 

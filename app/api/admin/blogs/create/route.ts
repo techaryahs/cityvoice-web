@@ -1,29 +1,38 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-import { v4 as uuid } from "uuid";
+import { normalizeBlogInput, readBlogs, writeBlogs } from "@/lib/blogs-server";
 
-const filePath = path.join(process.cwd(), "data", "blogs.json");
+export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   const body = await req.json();
 
-  const blogs = JSON.parse(
-    fs.readFileSync(filePath, "utf8")
-  );
+  const title = body?.title?.toString()?.trim();
+  const description = body?.description?.toString()?.trim();
+  const content = body?.content?.toString()?.trim();
+  const category = body?.category?.toString()?.trim();
 
-  blogs.push({
-    id: uuid(),
-    ...body,
-    createdAt: new Date().toISOString(),
+  if (!title || !description || !content || !category) {
+    return NextResponse.json(
+      { success: false, message: "Title, description, content, and category are required." },
+      { status: 400 }
+    );
+  }
+
+  const blogs = readBlogs();
+  const normalized = normalizeBlogInput({
+    title,
+    slug: body?.slug?.toString(),
+    description,
+    content,
+    category,
+    image: body?.image?.toString(),
+    featured: Boolean(body?.featured),
+    published: body?.published ?? true,
+    author: body?.author?.toString(),
   });
 
-  fs.writeFileSync(
-    filePath,
-    JSON.stringify(blogs, null, 2)
-  );
+  blogs.push(normalized);
+  writeBlogs(blogs);
 
-  return NextResponse.json({
-    success: true,
-  });
+  return NextResponse.json({ success: true, blog: normalized });
 }
