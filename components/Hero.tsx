@@ -55,7 +55,8 @@ export default function Hero() {
 
       {/* Grid */}
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 pb-24 pt-12 sm:pt-14 lg:grid-cols-[1fr_1.1fr] lg:pt-16">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-5 md:px-6 lg:px-8 2xl:max-w-[1600px]">
+        <div className="relative grid items-center gap-20 pt-10 pb-24 lg:grid-cols-[1fr_1.05fr]">
 
         {/* LEFT */}
 
@@ -71,7 +72,7 @@ export default function Hero() {
             initial={{ y: 15, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: .2 }}
-            className="mt-8 inline-flex items-center gap-3 rounded-full border border-blue-200 bg-white/80 backdrop-blur-xl px-5 py-3 shadow-lg"
+            className="inline-flex items-center gap-3 rounded-full border border-blue-200 bg-white/80 backdrop-blur-xl px-5 py-3 shadow-lg"
           >
 
             <div className="h-9 w-9 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
@@ -329,12 +330,13 @@ export default function Hero() {
         </div>
 
         </div>
+        </div>
 
       </div>
 
       {/* Reviews */}
 
-<section className="mt-24">
+{/* <section className="mt-24">
 
   <div className="text-center">
 
@@ -363,7 +365,7 @@ export default function Hero() {
   ))}
 </div>
 
-</section>
+</section> */}
 
     </section>
   );
