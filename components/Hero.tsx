@@ -9,34 +9,7 @@ import {
   FaMapMarkerAlt,
   FaCheckCircle,
 } from "react-icons/fa";
-import ReviewCard from "./ReviewCard";
 
-const reviews = [
-  {
-    name: "Rahul Sharma",
-    city: "Mumbai",
-    review:
-      "Reported a pothole and it was repaired in just two days.",
-    image: "/images/users/user1.jpg",
-    complaint: "Road Repair Completed",
-  },
-  {
-    name: "Priya Verma",
-    city: "Delhi",
-    review:
-      "Garbage collection complaint resolved within 24 hours.",
-    image: "/images/users/user2.jpg",
-    complaint: "Garbage Cleared",
-  },
-  {
-    name: "Amit Singh",
-    city: "Lucknow",
-    review:
-      "The tracking system kept me updated until the issue was fixed.",
-    image: "/images/users/user3.jpg",
-    complaint: "Water Leakage Fixed",
-  },
-];
 
 export default function Hero() {
   return (

@@ -53,11 +53,24 @@ export default function Navbar() {
     const id = href.replace("#", "");
     const target = document.getElementById(id);
 
-    if (target) {
-      const offset = window.innerWidth >= 1024 ? 100 : 88;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: "smooth" });
+    if (!target) return;
+
+    let offset = 100;
+
+    // Scroll deeper into the footer
+    if (id === "contact") {
+      offset = -250; // adjust as needed
     }
+
+    const top =
+      target.getBoundingClientRect().top +
+      window.scrollY -
+      offset;
+
+    window.scrollTo({
+      top,
+      behavior: "smooth",
+    });
 
     setOpen(false);
   };

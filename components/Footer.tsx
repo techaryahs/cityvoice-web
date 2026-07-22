@@ -16,7 +16,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden pt-32">
+    <footer id="contact" className="relative overflow-hidden pt-32">
 
       {/* Background Glow */}
 
