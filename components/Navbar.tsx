@@ -23,6 +23,29 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const drawerRef = useRef<HTMLDivElement | null>(null);
 
+  const [links, setLinks] = useState({
+    instagram: "",
+    facebook: "",
+    youtube: "",
+    android: "",
+    ios: "",
+    demo: "",
+  });
+
+  useEffect(() => {
+    const fetchLinks = async () => {
+      try {
+        const res = await fetch("/api/admin/links");
+        const data = await res.json();
+        setLinks(data);
+      } catch (error) {
+        console.error("Failed to load links:", error);
+      }
+    };
+
+    fetchLinks();
+  }, []);
+
   useEffect(() => {
     if (!open) return;
 
@@ -122,7 +145,9 @@ export default function Navbar() {
 
               <div className="hidden items-center gap-3 md:flex xl:gap-4">
                 <a
-                  href="#"
+                  href={links.instagram || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Instagram"
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-pink-500 hover:text-white xl:h-10 xl:w-10"
                 >
@@ -130,7 +155,9 @@ export default function Navbar() {
                 </a>
 
                 <a
-                  href="#"
+                  href={links.facebook || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Facebook"
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-blue-600 hover:text-white xl:h-10 xl:w-10"
                 >
@@ -138,20 +165,24 @@ export default function Navbar() {
                 </a>
 
                 <a
-                  href="#"
+                  href={links.youtube || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="YouTube"
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-red-600 hover:text-white xl:h-10 xl:w-10"
                 >
                   <FaYoutube />
                 </a>
 
-                <button
-                  type="button"
+                <a
+                  href={links.android || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-2 text-sm font-semibold text-white shadow-xl transition hover:scale-[1.01] md:px-5 md:py-2.5 lg:px-6 lg:py-3 lg:text-[0.95rem]"
                 >
                   <span>Download App</span>
                   <FaArrowRight className="transition group-hover:translate-x-1" />
-                </button>
+                </a>
               </div>
 
               <button

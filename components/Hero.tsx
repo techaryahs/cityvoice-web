@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
 import {
   FaGooglePlay,
   FaApple,
@@ -12,6 +14,44 @@ import {
 
 
 export default function Hero() {
+
+  const [links, setLinks] = useState({
+    instagram: "",
+    facebook: "",
+    youtube: "",
+    android: "",
+    ios: "",
+    demo: "",
+  });
+
+  useEffect(() => {
+    const fetchLinks = async () => {
+      try {
+        const res = await fetch("/api/admin/links");
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch links");
+        }
+
+        const data = await res.json();
+
+        setLinks({
+          instagram: data.instagram || "",
+          facebook: data.facebook || "",
+          youtube: data.youtube || "",
+          android: data.android || "",
+          ios: data.ios || "",
+          demo: data.demo || "",
+        });
+      } catch (error) {
+        console.error("Error loading website links:", error);
+      }
+    };
+
+    fetchLinks();
+  }, []);
+
+
   return (
     <section
     id="home"
@@ -173,60 +213,75 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
             className="mt-12 flex flex-wrap items-center gap-5"
-            >
+          >
             {/* Android */}
-            <button className="group rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-5 text-white shadow-[0_20px_50px_rgba(37,99,235,.30)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(37,99,235,.40)]">
-                <div className="flex items-center gap-4">
+            <a
+              href={links.android || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-5 text-white shadow-[0_20px_50px_rgba(37,99,235,.30)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(37,99,235,.40)]"
+            >
+              <div className="flex items-center gap-4">
                 <FaGooglePlay className="text-3xl" />
 
                 <div className="text-left">
-                    <p className="text-[11px] uppercase tracking-widest text-blue-100">
+                  <p className="text-[11px] uppercase tracking-widest text-blue-100">
                     Download for
-                    </p>
+                  </p>
 
-                    <h3 className="text-lg font-semibold">
+                  <h3 className="text-lg font-semibold">
                     Android
-                    </h3>
+                  </h3>
                 </div>
-                </div>
-            </button>
+              </div>
+            </a>
 
             {/* iOS */}
-            <button className="group rounded-2xl border border-slate-200 bg-white px-7 py-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div className="flex items-center gap-4">
+            <a
+              href={links.ios || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl border border-slate-200 bg-white px-7 py-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div className="flex items-center gap-4">
                 <FaApple className="text-3xl text-slate-900" />
 
                 <div className="text-left">
-                    <p className="text-[11px] uppercase tracking-widest text-slate-500">
+                  <p className="text-[11px] uppercase tracking-widest text-slate-500">
                     Download for
-                    </p>
+                  </p>
 
-                    <h3 className="text-lg font-semibold text-slate-900">
+                  <h3 className="text-lg font-semibold text-slate-900">
                     iPhone
-                    </h3>
+                  </h3>
                 </div>
-                </div>
-            </button>
+              </div>
+            </a>
 
             {/* Demo */}
-            <button className="group rounded-2xl border border-blue-100 bg-blue-50 px-7 py-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-blue-100 hover:shadow-xl">
-                <div className="flex items-center gap-4">
+            <a
+              href={links.demo || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl border border-blue-100 bg-blue-50 px-7 py-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-blue-100 hover:shadow-xl"
+            >
+              <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white transition group-hover:scale-110">
-                    <FaPlay className="ml-1" />
+                  <FaPlay className="ml-1" />
                 </div>
 
                 <div className="text-left">
-                    <p className="text-[11px] uppercase tracking-widest text-slate-500">
+                  <p className="text-[11px] uppercase tracking-widest text-slate-500">
                     Explore
-                    </p>
+                  </p>
 
-                    <h3 className="text-lg font-semibold text-slate-900">
+                  <h3 className="text-lg font-semibold text-slate-900">
                     Watch Demo
-                    </h3>
+                  </h3>
                 </div>
-                </div>
-            </button>
-        </motion.div>
+              </div>
+            </a>
+          </motion.div>
 
         </motion.div>
 

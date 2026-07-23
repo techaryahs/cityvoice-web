@@ -8,6 +8,8 @@ import {
   FaStar,
   FaUsers,
   FaCog,
+  FaSignOutAlt,
+  FaLink,
 } from "react-icons/fa";
 
 const cards = [
@@ -40,36 +42,59 @@ const cards = [
     href: "/admin/reviews",
   },
   {
-    title: "Users",
-    description: "Registered Users",
-    icon: FaUsers,
-    color: "from-indigo-600 to-violet-500",
-    href: "/admin/users",
+    title: "App & Social Links",
+    description: "Manage website links",
+    icon: FaLink,
+    color: "from-indigo-600 to-blue-500",
+    href: "/admin/links",
   },
-  {
-    title: "Settings",
-    description: "Website Settings",
-    icon: FaCog,
-    color: "from-gray-700 to-gray-500",
-    href: "/admin/settings",
-  },
+  // {
+  //   title: "Settings",
+  //   description: "Website Settings",
+  //   icon: FaCog,
+  //   color: "from-gray-700 to-gray-500",
+  //   href: "/admin/settings",
+  // },
 ];
 
 export default function Dashboard() {
   const router = useRouter();
 
+  const handleLogout = async () => {
+    await fetch("/api/admin/logout", {
+      method: "POST",
+    });
+
+    router.replace("/admin/login");
+  };
+
   return (
     <div className="min-h-screen bg-slate-100">
-      <div className="bg-gradient-to-r from-blue-700 to-cyan-600 px-8 py-6 shadow-lg">
-        <h1 className="text-3xl font-bold text-white">
-          CityVoice Admin Dashboard
-        </h1>
 
-        <p className="mt-1 text-blue-100">
-          Manage your website from one place.
-        </p>
+      {/* Header */}
+      <div className="bg-gradient-to-r from-blue-700 to-cyan-600 px-8 py-6 shadow-lg">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-white">
+              CityVoice Admin Dashboard
+            </h1>
+
+            <p className="mt-1 text-blue-100">
+              Manage your website from one place.
+            </p>
+          </div>
+
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 rounded-xl bg-white/20 px-5 py-3 text-white backdrop-blur transition-all duration-300 hover:bg-red-600"
+          >
+            <FaSignOutAlt />
+            Logout
+          </button>
+        </div>
       </div>
 
+      {/* Dashboard Cards */}
       <div className="mx-auto max-w-7xl p-8">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card) => {
@@ -95,7 +120,7 @@ export default function Dashboard() {
                   {card.description}
                 </p>
 
-                <div className="mt-6 font-semibold text-blue-600 group-hover:translate-x-1 transition">
+                <div className="mt-6 font-semibold text-blue-600 transition group-hover:translate-x-1">
                   Open →
                 </div>
               </button>
@@ -103,6 +128,7 @@ export default function Dashboard() {
           })}
         </div>
       </div>
+
     </div>
   );
 }

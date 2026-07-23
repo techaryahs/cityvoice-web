@@ -14,7 +14,33 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
+import { useEffect, useState } from "react";
+
 export default function Footer() {
+
+  const [links, setLinks] = useState({
+    instagram: "",
+    facebook: "",
+    youtube: "",
+    android: "",
+    ios: "",
+    demo: "",
+  });
+
+  useEffect(() => {
+    const fetchLinks = async () => {
+      try {
+        const res = await fetch("/api/admin/links");
+        const data = await res.json();
+        setLinks(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchLinks();
+  }, []);
+  
   return (
     <footer id="contact" className="relative overflow-hidden pt-32">
 
@@ -52,14 +78,16 @@ export default function Footer() {
 
             <div className="flex flex-wrap lg:justify-end gap-5">
 
-              <button className="rounded-2xl bg-white px-7 py-5 shadow-xl hover:scale-105 transition">
-
+              <a
+                href={links.android || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl bg-white px-7 py-5 shadow-xl transition hover:scale-105"
+              >
                 <div className="flex items-center gap-4">
-
                   <FaGooglePlay className="text-3xl text-blue-600" />
 
                   <div className="text-left">
-
                     <p className="text-xs uppercase text-slate-500">
                       Download on
                     </p>
@@ -67,21 +95,20 @@ export default function Footer() {
                     <h3 className="font-bold text-slate-900">
                       Google Play
                     </h3>
-
                   </div>
-
                 </div>
+              </a>
 
-              </button>
-
-              <button className="rounded-2xl bg-slate-900 px-7 py-5 shadow-xl hover:scale-105 transition">
-
+              <a
+                href={links.ios || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl bg-slate-900 px-7 py-5 shadow-xl transition hover:scale-105"
+              >
                 <div className="flex items-center gap-4">
-
                   <FaApple className="text-3xl text-white" />
 
                   <div className="text-left">
-
                     <p className="text-xs uppercase text-slate-400">
                       Download on
                     </p>
@@ -89,12 +116,9 @@ export default function Footer() {
                     <h3 className="font-bold text-white">
                       App Store
                     </h3>
-
                   </div>
-
                 </div>
-
-              </button>
+              </a>
 
             </div>
 
@@ -220,16 +244,29 @@ export default function Footer() {
 
               <div className="flex gap-4 mt-8">
 
-                {[FaInstagram, FaFacebookF, FaYoutube].map((Icon, i) => (
-
+                {[
+                  {
+                    icon: FaInstagram,
+                    url: links.instagram,
+                  },
+                  {
+                    icon: FaFacebookF,
+                    url: links.facebook,
+                  },
+                  {
+                    icon: FaYoutube,
+                    url: links.youtube,
+                  },
+                ].map(({ icon: Icon, url }, index) => (
                   <a
-                    key={i}
-                    href="#"
+                    key={index}
+                    href={url || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:-translate-y-2 hover:bg-blue-600 hover:text-white"
                   >
                     <Icon size={22} />
                   </a>
-
                 ))}
 
               </div>
