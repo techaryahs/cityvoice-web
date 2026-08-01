@@ -32,12 +32,20 @@ export default function Navbar() {
     demo: "",
   });
 
+  const [logo, setLogo] = useState("/images/logo.jpeg");
+
   useEffect(() => {
     const fetchLinks = async () => {
       try {
         const res = await fetch("/api/admin/links");
         const data = await res.json();
         setLinks(data);
+
+        const hpRes = await fetch("/api/homepage");
+        if (hpRes.ok) {
+          const hpData = await hpRes.json();
+          if (hpData.logo) setLogo(hpData.logo);
+        }
       } catch (error) {
         console.error("Failed to load links:", error);
       }
@@ -112,7 +120,7 @@ export default function Navbar() {
               <Link href="/" className="flex shrink-0 items-center">
                 <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-white shadow-lg sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16">
                   <Image
-                    src="/images/logo.jpeg"
+                    src={logo}
                     alt="CityVoice"
                     width={200}
                     height={200}

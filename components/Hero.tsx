@@ -24,6 +24,8 @@ export default function Hero() {
     demo: "",
   });
 
+  const [heroImage, setHeroImage] = useState("/images/bridge.png");
+
   useEffect(() => {
     const fetchLinks = async () => {
       try {
@@ -43,6 +45,12 @@ export default function Hero() {
           ios: data.ios || "",
           demo: data.demo || "",
         });
+
+        const hpRes = await fetch("/api/homepage");
+        if (hpRes.ok) {
+          const hpData = await hpRes.json();
+          if (hpData.heroImage) setHeroImage(hpData.heroImage);
+        }
       } catch (error) {
         console.error("Error loading website links:", error);
       }
@@ -303,7 +311,7 @@ export default function Hero() {
           <div className="relative z-20 overflow-hidden rounded-[42px] border border-white/40 bg-white shadow-[0_35px_90px_rgba(0,0,0,.18)]">
 
             <Image
-              src="/images/bridge.png"
+              src={heroImage}
               alt="Bridge"
               width={900}
               height={750}

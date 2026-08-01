@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AdminHeader } from "@/components/admin/AdminHeader";
 
 type Review = {
   id: number;
@@ -69,16 +70,9 @@ export default function AdminReviewsPage() {
     <div className="min-h-screen bg-slate-100 p-8">
 
       <div className="mx-auto max-w-7xl">
+        <AdminHeader title="User Reviews" description="Approve or remove submitted reviews." />
 
-        <h1 className="text-4xl font-bold text-slate-900">
-          User Reviews
-        </h1>
-
-        <p className="mt-2 text-slate-500">
-          Approve or remove submitted reviews.
-        </p>
-
-        <div className="mt-8 overflow-hidden rounded-3xl bg-white shadow-xl">
+        <div className="overflow-hidden rounded-3xl bg-white shadow-xl">
 
           {loading ? (
             <div className="p-10 text-center">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FaArrowLeft, FaImage, FaSave, FaUpload } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import { AdminHeader } from "@/components/admin/AdminHeader";
 
 interface BlogFormState {
   title: string;
@@ -98,32 +99,12 @@ export default function AddBlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200">
       <div className="mx-auto flex max-w-[1500px] flex-col gap-6 px-6 py-6 lg:px-8 lg:py-8">
-        <header className="rounded-2xl border border-slate-200/80 bg-white/80 px-6 py-4 shadow-sm backdrop-blur-sm">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex items-start gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 shadow-sm">
-                <FaSave className="text-base" />
-              </div>
-              <div>
-                <h1 className="text-xl font-semibold tracking-tight text-slate-900">
-                  Add new blog post
-                </h1>
-                <p className="mt-1 text-sm text-slate-500">
-                  Publish a polished article for your audience.
-                </p>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              onClick={() => router.back()}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow-sm"
-            >
-              <FaArrowLeft className="text-xs" />
-              Back
-            </button>
-          </div>
-        </header>
+        <AdminHeader 
+          title="Add new blog post" 
+          description="Publish a polished article for your audience."
+          icon={<FaSave className="text-base" />}
+          backUrl="/admin/blogs"
+        />
 
         <form onSubmit={handleSubmit} className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
           <section className="space-y-6">

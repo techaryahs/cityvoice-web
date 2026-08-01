@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { formatBlogDate } from "@/lib/blogs";
 import { readBlogs } from "@/lib/blogs-server";
+import { AdminHeader } from "@/components/admin/AdminHeader";
 
 export default function AdminBlogsPage() {
   const blogs = readBlogs();
@@ -8,15 +9,11 @@ export default function AdminBlogsPage() {
   return (
     <main className="min-h-screen bg-slate-50 px-6 py-10 text-slate-900">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-8 flex items-center justify-between">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Admin dashboard</p>
-            <h1 className="mt-2 text-3xl font-bold">Blog posts</h1>
-          </div>
-          <Link href="/admin/blogs/add" className="rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white">
+        <AdminHeader title="Blog posts" description="Manage and view your blog posts">
+          <Link href="/admin/blogs/add" className="rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow">
             Add new blog
           </Link>
-        </div>
+        </AdminHeader>
 
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
           {blogs.length === 0 ? (

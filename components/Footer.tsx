@@ -27,12 +27,20 @@ export default function Footer() {
     demo: "",
   });
 
+  const [logo, setLogo] = useState("/images/logo.jpeg");
+
   useEffect(() => {
     const fetchLinks = async () => {
       try {
         const res = await fetch("/api/admin/links");
         const data = await res.json();
         setLinks(data);
+
+        const hpRes = await fetch("/api/homepage");
+        if (hpRes.ok) {
+          const hpData = await hpRes.json();
+          if (hpData.logo) setLogo(hpData.logo);
+        }
       } catch (err) {
         console.error(err);
       }
@@ -140,7 +148,7 @@ export default function Footer() {
             <div>
 
               <Image
-                src="/images/logo.jpeg"
+                src={logo}
                 alt="City Voice"
                 width={220}
                 height={70}

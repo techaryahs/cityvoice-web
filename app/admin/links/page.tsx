@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
+import { AdminHeader } from "@/components/admin/AdminHeader";
 
 export default function LinksPage() {
   const [form, setForm] = useState({
@@ -45,20 +46,10 @@ export default function LinksPage() {
 
   return (
     <div className="min-h-screen bg-slate-100 py-10">
-        <div className="mx-auto max-w-3xl">
-        <button
-        onClick={() => router.push("/admin/dashboard")}
-        className="mb-6 flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-slate-700 shadow transition-all hover:bg-blue-600 hover:text-white"
-      >
-        <FaArrowLeft />
-        Back to Dashboard
-      </button>
-      <div className="mx-auto max-w-3xl rounded-3xl bg-white p-8 shadow-lg">
-        <h1 className="mb-8 text-3xl font-bold">
-          Website Links
-        </h1>
-
-        <div className="space-y-5">
+      <div className="mx-auto max-w-3xl">
+        <AdminHeader title="Website Links" description="Manage your website links and app URLs." />
+        <div className="rounded-3xl bg-white p-8 shadow-lg">
+          <div className="space-y-5">
           <Input
             label="Instagram"
             value={form.instagram}
