@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   FaGooglePlay,
@@ -157,7 +158,7 @@ export default function Footer() {
               <p className="mt-6 text-slate-600 leading-8">
                 Your Voice.
                 <br />
-                Your City's Progress.
+                Your City&apos;s Progress.
               </p>
 
               <p className="mt-4 text-slate-500">
@@ -298,19 +299,19 @@ export default function Footer() {
 
             <div className="flex gap-8 mt-5 md:mt-0">
 
-              <a
-                href="#"
+              <Link
+                href="/privacy-policy"
                 className="text-slate-500 hover:text-blue-600 transition"
               >
                 Privacy Policy
-              </a>
+              </Link>
 
-              <a
-                href="#"
+              <Link
+                href="/terms-and-conditions"
                 className="text-slate-500 hover:text-blue-600 transition"
               >
                 Terms & Conditions
-              </a>
+              </Link>
 
             </div>
 
