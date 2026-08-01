@@ -26,6 +26,7 @@ export default function AdminLogin() {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include", // IMPORTANT
         body: JSON.stringify({
           email,
           password,
@@ -40,13 +41,12 @@ export default function AdminLogin() {
         return;
       }
 
-      localStorage.setItem("adminToken", data.token);
-
       setSuccess("✅ Login Successful! Redirecting to Dashboard...");
 
       setTimeout(() => {
-        router.push("/admin/dashboard");
-      }, 1500);
+        router.replace("/admin/dashboard");
+        router.refresh();
+      }, 1000);
     } catch (err) {
       console.error(err);
       setLoading(false);
@@ -57,7 +57,6 @@ export default function AdminLogin() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-100 via-blue-50 to-slate-200 p-6">
       <div className="w-full max-w-md rounded-3xl bg-white p-8 shadow-2xl">
-
         <div className="mb-8 text-center">
           <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-blue-600 text-3xl text-white shadow-lg">
             🛡️
@@ -73,7 +72,6 @@ export default function AdminLogin() {
         </div>
 
         <form onSubmit={login} className="space-y-5">
-
           <div>
             <label className="mb-2 block text-sm font-medium text-gray-700">
               Admin Email
