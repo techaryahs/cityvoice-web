@@ -65,7 +65,7 @@ export default function BlogSection() {
             Latest Updates
           </span>
 
-          <h2 className="mt-6 text-5xl font-black text-slate-900 md:text-6xl">
+          <h2 className="mt-6 text-4xl sm:text-5xl font-black text-slate-900 md:text-6xl">
             Smart City Insights
           </h2>
 
@@ -99,14 +99,14 @@ export default function BlogSection() {
                 whileHover={{ y: -8 }}
                 className="group overflow-hidden rounded-[34px] border border-white/60 bg-white/80 shadow-[0_30px_80px_rgba(15,23,42,.08)] backdrop-blur-xl lg:col-span-2"
               >
-                <div className="relative h-[430px] overflow-hidden">
+                <div className="relative h-[250px] sm:h-[300px] md:h-[430px] overflow-hidden">
                   <Image src={featured.image} alt={featured.title} fill className="object-cover transition duration-700 group-hover:scale-110" />
                   <div className="absolute left-6 top-6 rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white">
                     {featured.category}
                   </div>
                 </div>
 
-                <div className="p-10">
+                <div className="p-6 sm:p-10">
                   <div className="flex items-center gap-4 text-sm text-slate-500">
                     <span>{formatBlogDate(featured.createdAt)}</span>
                     <span>•</span>
@@ -116,7 +116,7 @@ export default function BlogSection() {
                     </span>
                   </div>
 
-                  <h3 className="mt-5 text-4xl font-black text-slate-900 transition group-hover:text-blue-600">
+                  <h3 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 transition group-hover:text-blue-600">
                     {featured.title}
                   </h3>
 

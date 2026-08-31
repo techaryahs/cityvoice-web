@@ -30,7 +30,7 @@ export default function BlogCard({
       className={`group overflow-hidden rounded-[32px] border border-white/60 bg-white/80 backdrop-blur-xl shadow-[0_25px_70px_rgba(15,23,42,.08)]
       ${featured ? "lg:col-span-2" : ""}`}
     >
-      <div className={`relative overflow-hidden ${featured ? "h-[420px]" : "h-64"}`}>
+      <div className={`relative overflow-hidden ${featured ? "h-[250px] sm:h-[350px] md:h-[420px]" : "h-56 sm:h-64"}`}>
         <Image
           src={image}
           alt={title}
@@ -38,12 +38,12 @@ export default function BlogCard({
           className="object-cover transition duration-700 group-hover:scale-110"
         />
 
-        <div className="absolute left-6 top-6 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white">
+        <div className="absolute left-6 top-6 rounded-full bg-blue-600 px-4 py-2 text-xs sm:text-sm font-semibold text-white">
           {category}
         </div>
       </div>
 
-      <div className="p-8">
+      <div className="p-6 sm:p-8">
 
         <div className="flex items-center gap-4 text-sm text-slate-500">
 
@@ -61,7 +61,7 @@ export default function BlogCard({
 
         </div>
 
-        <h3 className="mt-5 text-3xl font-black text-slate-900 group-hover:text-blue-600 transition">
+        <h3 className="mt-4 sm:mt-5 text-2xl sm:text-3xl font-black text-slate-900 group-hover:text-blue-600 transition">
 
           {title}
 

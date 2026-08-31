@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Reviews from "@/components/Reviews";
 import BlogSection from "@/components/BlogSection";
+import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
 
         <BlogSection />
 
+        <TeamSection />
 
         <Footer />
 

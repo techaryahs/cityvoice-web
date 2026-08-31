@@ -155,54 +155,54 @@ export default function ReviewCard({
                 duration: 0.25,
               }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl rounded-[34px] bg-white p-10 shadow-2xl"
+              className="relative w-full max-w-2xl rounded-[34px] bg-white p-6 sm:p-10 shadow-2xl"
             >
               <button
                 onClick={() => setShowModal(false)}
-                className="absolute right-6 top-6 text-xl text-slate-400 transition hover:text-red-500"
+                className="absolute right-4 top-4 sm:right-6 sm:top-6 text-xl text-slate-400 transition hover:text-red-500"
               >
                 <FaTimes />
               </button>
 
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-4 sm:gap-5">
                 <div
-                  className="flex h-20 w-20 items-center justify-center rounded-full
+                  className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full
                   bg-gradient-to-r from-blue-600 via-cyan-500 to-sky-400
-                  text-2xl font-bold text-white shadow-lg"
+                  text-xl sm:text-2xl font-bold text-white shadow-lg"
                 >
                   {initials}
                 </div>
 
                 <div>
-                  <h2 className="text-3xl font-bold">
+                  <h2 className="text-2xl sm:text-3xl font-bold">
                     {name}
                   </h2>
 
-                  <div className="mt-2 flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-sm font-semibold text-green-700 w-fit">
+                  <div className="mt-2 flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-xs sm:text-sm font-semibold text-green-700 w-fit">
                     <FaCheckCircle />
                     Verified Citizen
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 flex gap-1 text-yellow-400">
+              <div className="mt-6 sm:mt-8 flex gap-1 text-yellow-400">
                 {[...Array(5)].map((_, i) => (
                   <FaStar
                     key={i}
-                    className="text-2xl"
+                    className="text-xl sm:text-2xl"
                   />
                 ))}
               </div>
 
-              <FaQuoteLeft className="mt-10 text-6xl text-blue-100" />
+              <FaQuoteLeft className="mt-6 sm:mt-10 text-4xl sm:text-6xl text-blue-100" />
 
-              <p className="mt-6 whitespace-pre-line text-xl leading-10 text-slate-700">
+              <p className="mt-4 sm:mt-6 whitespace-pre-line text-lg sm:text-xl leading-8 sm:leading-10 text-slate-700">
                 "{review}"
               </p>
 
               <button
                 onClick={() => setShowModal(false)}
-                className="mt-10 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-4 font-semibold text-white shadow-lg transition hover:scale-105"
+                className="mt-8 sm:mt-10 w-full sm:w-auto rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-4 font-semibold text-white shadow-lg transition hover:scale-105"
               >
                 Close
               </button>

@@ -69,7 +69,7 @@ function ReviewModal({
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-md px-4">
 
-      <div className="relative w-full max-w-xl rounded-3xl bg-white p-8 shadow-2xl">
+      <div className="relative w-full max-w-xl rounded-3xl bg-white p-6 sm:p-8 shadow-2xl">
 
         {/* Close Button */}
         <button
@@ -217,25 +217,25 @@ export default function Reviews() {
             ⭐ Citizen Reviews
           </span>
 
-          <h2 className="mt-6 text-5xl md:text-6xl font-black text-slate-900">
+          <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 text-center">
             Loved by Citizens
           </h2>
 
-          <p className="mt-6 text-lg text-slate-500 max-w-3xl mx-auto text-center">
+          <p className="mt-6 text-base sm:text-lg text-slate-500 max-w-3xl mx-auto text-center">
             Thousands of citizens across India are improving their cities through
             transparent reporting and faster issue resolution.
           </p>
 
           <button
             onClick={() => setOpenReview(true)}
-            className="mt-10 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-4 text-white font-semibold shadow-xl transition hover:scale-105"
+            className="mt-8 sm:mt-10 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-4 text-white font-semibold shadow-xl transition hover:scale-105"
           >
             Write a Review
           </button>
 
         </div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mt-20">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 sm:gap-8 mt-16 sm:mt-20">
 
   {displayedReviews.map((item: any, index: number) => (
     <ReviewCard

@@ -67,7 +67,7 @@ export default function AdminReviewsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 p-8">
+    <div className="min-h-screen bg-slate-100 p-4 sm:p-8">
 
       <div className="mx-auto max-w-7xl">
         <AdminHeader title="User Reviews" description="Approve or remove submitted reviews." />
@@ -83,79 +83,81 @@ export default function AdminReviewsPage() {
               No reviews found.
             </div>
           ) : (
-            <table className="w-full">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[800px]">
 
-              <thead className="bg-slate-100">
-                <tr>
-                  <th className="p-4 text-left">Name</th>
-                  <th className="p-4 text-left">Email</th>
-                  <th className="p-4 text-left">Review</th>
-                  <th className="p-4 text-left">Status</th>
-                  <th className="p-4 text-left">Date</th>
-                  <th className="p-4 text-center">Actions</th>
-                </tr>
-              </thead>
-
-              <tbody>
-
-                {reviews.map((review) => (
-                  <tr
-                    key={review.id}
-                    className="border-t"
-                  >
-                    <td className="p-4 font-semibold">
-                      {review.name}
-                    </td>
-
-                    <td className="p-4">
-                      {review.email}
-                    </td>
-
-                    <td className="max-w-md p-4">
-                      {review.review}
-                    </td>
-
-                    <td className="p-4">
-                      <span
-                        className={`rounded-full px-3 py-1 text-sm font-semibold ${
-                          review.status === "approved"
-                            ? "bg-green-100 text-green-700"
-                            : "bg-yellow-100 text-yellow-700"
-                        }`}
-                      >
-                        {review.status}
-                      </span>
-                    </td>
-
-                    <td className="p-4">
-                      {new Date(review.createdAt).toLocaleDateString()}
-                    </td>
-
-                    <td className="space-x-2 p-4 text-center">
-
-                      {review.status === "pending" && (
-                        <button
-                          onClick={() => approveReview(review.id)}
-                          className="rounded-lg bg-green-600 px-4 py-2 text-white hover:bg-green-700"
-                        >
-                          Approve
-                        </button>
-                      )}
-
-                      <button
-                        onClick={() => deleteReview(review.id)}
-                        className="rounded-lg bg-red-600 px-4 py-2 text-white hover:bg-red-700"
-                      >
-                        Delete
-                      </button>
-
-                    </td>
+                <thead className="bg-slate-100">
+                  <tr>
+                    <th className="p-4 text-left">Name</th>
+                    <th className="p-4 text-left">Email</th>
+                    <th className="p-4 text-left">Review</th>
+                    <th className="p-4 text-left">Status</th>
+                    <th className="p-4 text-left">Date</th>
+                    <th className="p-4 text-center">Actions</th>
                   </tr>
-                ))}
+                </thead>
 
-              </tbody>
+                <tbody>
 
-            </table>
+                  {reviews.map((review) => (
+                    <tr
+                      key={review.id}
+                      className="border-t"
+                    >
+                      <td className="p-4 font-semibold">
+                        {review.name}
+                      </td>
+
+                      <td className="p-4">
+                        {review.email}
+                      </td>
+
+                      <td className="max-w-xs sm:max-w-md p-4 truncate sm:whitespace-normal">
+                        {review.review}
+                      </td>
+
+                      <td className="p-4">
+                        <span
+                          className={`rounded-full px-3 py-1 text-sm font-semibold ${
+                            review.status === "approved"
+                              ? "bg-green-100 text-green-700"
+                              : "bg-yellow-100 text-yellow-700"
+                          }`}
+                        >
+                          {review.status}
+                        </span>
+                      </td>
+
+                      <td className="p-4">
+                        {new Date(review.createdAt).toLocaleDateString()}
+                      </td>
+
+                      <td className="space-x-2 p-4 text-center">
+
+                        {review.status === "pending" && (
+                          <button
+                            onClick={() => approveReview(review.id)}
+                            className="rounded-lg bg-green-600 px-4 py-2 text-white hover:bg-green-700"
+                          >
+                            Approve
+                          </button>
+                        )}
+
+                        <button
+                          onClick={() => deleteReview(review.id)}
+                          className="mt-2 sm:mt-0 rounded-lg bg-red-600 px-4 py-2 text-white hover:bg-red-700"
+                        >
+                          Delete
+                        </button>
+
+                      </td>
+                    </tr>
+                  ))}
+
+                </tbody>
+
+              </table>
+            </div>
           )}
 
         </div>

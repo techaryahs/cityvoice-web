@@ -126,7 +126,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: .3 }}
-            className="mt-10 text-[58px] md:text-[82px] leading-[0.95] font-black tracking-tight text-slate-900"
+            className="mt-10 text-4xl sm:text-[58px] md:text-[82px] leading-[1.1] sm:leading-[0.95] font-black tracking-tight text-slate-900"
           >
 
             Transform
@@ -157,7 +157,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: .45 }}
-            className="mt-8 text-xl leading-9 text-slate-600 max-w-xl"
+            className="mt-8 text-lg sm:text-xl leading-relaxed sm:leading-9 text-slate-600 max-w-full sm:max-w-xl"
           >
 
             Report potholes, garbage, water leakage,
@@ -316,7 +316,7 @@ export default function Hero() {
               width={900}
               height={750}
               priority
-              className="h-[650px] w-full object-cover"
+              className="h-[400px] sm:h-[500px] md:h-[650px] w-full object-cover"
             />
 
             {/* Overlay */}
@@ -327,11 +327,11 @@ export default function Hero() {
 
         </motion.div>
 
-                <div className="grid grid-cols-3 gap-5 mt-16">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-16">
 
         <div className="rounded-3xl bg-white border border-slate-100 shadow-xl p-6">
 
-            <h2 className="text-5xl font-black text-blue-600">
+            <h2 className="text-4xl sm:text-5xl font-black text-blue-600">
             100K+
             </h2>
 
@@ -343,7 +343,7 @@ export default function Hero() {
 
         <div className="rounded-3xl bg-white border border-slate-100 shadow-xl p-6">
 
-            <h2 className="text-5xl font-black text-blue-600">
+            <h2 className="text-4xl sm:text-5xl font-black text-blue-600">
             25K+
             </h2>
 
@@ -355,7 +355,7 @@ export default function Hero() {
 
         <div className="rounded-3xl bg-white border border-slate-100 shadow-xl p-6">
 
-            <h2 className="text-5xl font-black text-blue-600">
+            <h2 className="text-4xl sm:text-5xl font-black text-blue-600">
             98%
             </h2>
 

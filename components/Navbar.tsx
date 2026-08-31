@@ -199,7 +199,7 @@ export default function Navbar() {
                 aria-label="Toggle menu"
                 aria-expanded={open}
                 aria-controls="mobile-navigation"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-xl text-slate-700 shadow-sm ring-1 ring-slate-200 transition focus:outline-none focus:ring-2 focus:ring-blue-500 md:hidden"
+                className="flex shrink-0 h-10 w-10 items-center justify-center rounded-full bg-white/80 text-xl text-slate-700 shadow-sm ring-1 ring-slate-200 transition focus:outline-none focus:ring-2 focus:ring-blue-500 md:hidden"
               >
                 {open ? <FaTimes /> : <FaBars />}
               </button>

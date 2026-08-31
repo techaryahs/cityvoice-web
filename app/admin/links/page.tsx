@@ -45,10 +45,10 @@ export default function LinksPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-slate-100 py-10">
+    <div className="min-h-screen bg-slate-100 px-4 py-8 sm:py-10">
       <div className="mx-auto max-w-3xl">
         <AdminHeader title="Website Links" description="Manage your website links and app URLs." />
-        <div className="rounded-3xl bg-white p-8 shadow-lg">
+        <div className="rounded-3xl bg-white p-6 sm:p-8 shadow-lg">
           <div className="space-y-5">
           <Input
             label="Instagram"

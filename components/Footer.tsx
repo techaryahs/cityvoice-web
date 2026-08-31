@@ -71,7 +71,7 @@ export default function Footer() {
 
             <div>
 
-              <h2 className="text-5xl font-black text-white leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight">
                 Ready to Make
                 <br />
                 Your City Better?
@@ -142,7 +142,7 @@ export default function Footer() {
 
         <div className="max-w-7xl mx-auto px-6 py-20">
 
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-14">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-10 sm:gap-14">
 
             {/* Logo */}
 

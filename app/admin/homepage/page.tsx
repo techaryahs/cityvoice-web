@@ -169,7 +169,7 @@ export default function HomepageImagesAdmin() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 p-8">
+    <div className="min-h-screen bg-slate-100 p-4 sm:p-8">
       {toast && (
         <div className={`fixed top-5 right-5 z-50 rounded-xl px-6 py-4 text-white shadow-xl transition-all ${toast.type === "success" ? "bg-green-500" : "bg-red-500"}`}>
           {toast.message}
@@ -182,7 +182,7 @@ export default function HomepageImagesAdmin() {
         <div className="grid gap-8 lg:grid-cols-2">
           
           {/* Hero Image Card */}
-          <div className="rounded-3xl bg-white p-8 shadow-md">
+          <div className="rounded-3xl bg-white p-6 sm:p-8 shadow-md">
             <div className="mb-6 flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
                 <FaImage className="text-xl" />
