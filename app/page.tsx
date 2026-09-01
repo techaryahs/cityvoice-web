@@ -1,8 +1,18 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Reviews from "@/components/Reviews";
-import BlogSection from "@/components/BlogSection";
+import ProblemSection from "@/components/ProblemSection";
+import HowItWorks from "@/components/HowItWorks";
+import Features from "@/components/Features";
+import MapFeature from "@/components/MapFeature";
+import CommunityPower from "@/components/CommunityPower";
+import ProductShowcase from "@/components/ProductShowcase";
+import MissionVision from "@/components/MissionVision";
 import TeamSection from "@/components/TeamSection";
+import FounderMessage from "@/components/FounderMessage";
+import FutureRoadmap from "@/components/FutureRoadmap";
+import BlogSection from "@/components/BlogSection";
+import Reviews from "@/components/Reviews";
+import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -22,15 +32,20 @@ export default function Home() {
       <div className="relative z-10">
 
         <Navbar />
-
         <Hero />
-
-        <Reviews />
-
-        <BlogSection />
-
+        <ProblemSection />
+        <HowItWorks />
+        <Features />
+        <MapFeature />
+        <CommunityPower />
+        <ProductShowcase />
+        <MissionVision />
         <TeamSection />
-
+        <FounderMessage />
+        <FutureRoadmap />
+        <BlogSection />
+        <Reviews />
+        <FinalCTA />
         <Footer />
 
       </div>

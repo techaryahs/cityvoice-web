@@ -106,13 +106,13 @@ export default function Hero() {
 
               <p className="font-semibold text-slate-900">
 
-                Smart City Platform
+                Modern Civic Technology
 
               </p>
 
               <p className="text-xs text-slate-500">
 
-                Trusted by Municipal Corporations
+                Empowering Citizens & Communities
 
               </p>
 
@@ -129,26 +129,13 @@ export default function Hero() {
             className="mt-10 text-4xl sm:text-[58px] md:text-[82px] leading-[1.1] sm:leading-[0.95] font-black tracking-tight text-slate-900"
           >
 
-            Transform
-
+            See a Problem.
             <br />
-
-            Your
-
-            <br />
-
             <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-
-              City
-
+              Raise Your
             </span>
-
-            {" "}Through
-
             <br />
-
-            Citizen Voices.
-
+            Voice.
           </motion.h1>
 
           {/* Subtitle */}
@@ -160,10 +147,7 @@ export default function Hero() {
             className="mt-8 text-lg sm:text-xl leading-relaxed sm:leading-9 text-slate-600 max-w-full sm:max-w-xl"
           >
 
-            Report potholes, garbage, water leakage,
-            damaged roads and civic issues directly to
-            local authorities with complete transparency
-            and real-time progress tracking.
+            CityVoice helps citizens report local civic problems, gather community support, and bring attention to issues that matter. Your voice can drive real change.
 
           </motion.p>
 
@@ -222,22 +206,40 @@ export default function Hero() {
             transition={{ delay: 0.8 }}
             className="mt-12 flex flex-wrap items-center gap-5"
           >
+            {/* Raise Voice */}
+            <a
+              href="#how-it-works"
+              className="group rounded-2xl bg-gradient-to-r from-red-600 to-red-500 px-7 py-5 text-white shadow-[0_20px_50px_rgba(220,38,38,.30)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(220,38,38,.40)]"
+            >
+              <div className="flex items-center gap-4">
+                <div className="text-left">
+                  <p className="text-[11px] uppercase tracking-widest text-red-100">
+                    Take Action
+                  </p>
+
+                  <h3 className="text-lg font-semibold">
+                    Raise Your Voice
+                  </h3>
+                </div>
+              </div>
+            </a>
+
             {/* Android */}
             <a
               href={links.android || "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-5 text-white shadow-[0_20px_50px_rgba(37,99,235,.30)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(37,99,235,.40)]"
+              className="group rounded-2xl border border-slate-200 bg-white px-7 py-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="flex items-center gap-4">
-                <FaGooglePlay className="text-3xl" />
+                <FaGooglePlay className="text-3xl text-slate-900" />
 
                 <div className="text-left">
-                  <p className="text-[11px] uppercase tracking-widest text-blue-100">
-                    Download for
+                  <p className="text-[11px] uppercase tracking-widest text-slate-500">
+                    Download App
                   </p>
 
-                  <h3 className="text-lg font-semibold">
+                  <h3 className="text-lg font-semibold text-slate-900">
                     Android
                   </h3>
                 </div>
@@ -256,35 +258,11 @@ export default function Hero() {
 
                 <div className="text-left">
                   <p className="text-[11px] uppercase tracking-widest text-slate-500">
-                    Download for
+                    Download App
                   </p>
 
                   <h3 className="text-lg font-semibold text-slate-900">
                     iPhone
-                  </h3>
-                </div>
-              </div>
-            </a>
-
-            {/* Demo */}
-            <a
-              href={links.demo || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-2xl border border-blue-100 bg-blue-50 px-7 py-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-blue-100 hover:shadow-xl"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white transition group-hover:scale-110">
-                  <FaPlay className="ml-1" />
-                </div>
-
-                <div className="text-left">
-                  <p className="text-[11px] uppercase tracking-widest text-slate-500">
-                    Explore
-                  </p>
-
-                  <h3 className="text-lg font-semibold text-slate-900">
-                    Watch Demo
                   </h3>
                 </div>
               </div>
@@ -329,41 +307,41 @@ export default function Hero() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-16">
 
-        <div className="rounded-3xl bg-white border border-slate-100 shadow-xl p-6">
+          <div className="rounded-3xl bg-white border border-slate-100 shadow-xl p-6">
 
-            <h2 className="text-4xl sm:text-5xl font-black text-blue-600">
-            100K+
-            </h2>
+              <h2 className="text-4xl sm:text-5xl font-black text-blue-600">
+              100K+
+              </h2>
 
-            <p className="mt-2 text-slate-500">
-            Citizens
-            </p>
+              <p className="mt-2 text-slate-500 font-medium">
+              Citizens Connected
+              </p>
 
-        </div>
+          </div>
 
-        <div className="rounded-3xl bg-white border border-slate-100 shadow-xl p-6">
+          <div className="rounded-3xl bg-white border border-slate-100 shadow-xl p-6">
 
-            <h2 className="text-4xl sm:text-5xl font-black text-blue-600">
-            25K+
-            </h2>
+              <h2 className="text-4xl sm:text-5xl font-black text-blue-600">
+              25K+
+              </h2>
 
-            <p className="mt-2 text-slate-500">
-            Complaints
-            </p>
+              <p className="mt-2 text-slate-500 font-medium">
+              Voices Raised
+              </p>
 
-        </div>
+          </div>
 
-        <div className="rounded-3xl bg-white border border-slate-100 shadow-xl p-6">
+          <div className="rounded-3xl bg-white border border-slate-100 shadow-xl p-6">
 
-            <h2 className="text-4xl sm:text-5xl font-black text-blue-600">
-            98%
-            </h2>
+              <h2 className="text-4xl sm:text-5xl font-black text-blue-600">
+              150K+
+              </h2>
 
-            <p className="mt-2 text-slate-500">
-            Resolved
-            </p>
+              <p className="mt-2 text-slate-500 font-medium">
+              Issues Supported
+              </p>
 
-        </div>
+          </div>
 
         </div>
         </div>

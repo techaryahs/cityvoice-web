@@ -57,84 +57,7 @@ export default function Footer() {
 
       <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[150px]" />
 
-      {/* CTA */}
-
-      <div className="relative max-w-7xl mx-auto px-6">
-
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="rounded-[40px] bg-gradient-to-r from-blue-600 to-cyan-500 p-12 shadow-[0_35px_80px_rgba(37,99,235,.35)]"
-        >
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-
-            <div>
-
-              <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight">
-                Ready to Make
-                <br />
-                Your City Better?
-              </h2>
-
-              <p className="mt-6 text-blue-100 text-lg leading-8">
-                Download City Voice today and report civic issues
-                directly to your local authority with complete
-                transparency and live tracking.
-              </p>
-
-            </div>
-
-            <div className="flex flex-wrap lg:justify-end gap-5">
-
-              <a
-                href={links.android || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-2xl bg-white px-7 py-5 shadow-xl transition hover:scale-105"
-              >
-                <div className="flex items-center gap-4">
-                  <FaGooglePlay className="text-3xl text-blue-600" />
-
-                  <div className="text-left">
-                    <p className="text-xs uppercase text-slate-500">
-                      Download on
-                    </p>
-
-                    <h3 className="font-bold text-slate-900">
-                      Google Play
-                    </h3>
-                  </div>
-                </div>
-              </a>
-
-              <a
-                href={links.ios || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-2xl bg-slate-900 px-7 py-5 shadow-xl transition hover:scale-105"
-              >
-                <div className="flex items-center gap-4">
-                  <FaApple className="text-3xl text-white" />
-
-                  <div className="text-left">
-                    <p className="text-xs uppercase text-slate-400">
-                      Download on
-                    </p>
-
-                    <h3 className="font-bold text-white">
-                      App Store
-                    </h3>
-                  </div>
-                </div>
-              </a>
-
-            </div>
-
-          </div>
-        </motion.div>
-
-      </div>
+      {/* Footer */}
 
       {/* Footer */}
 
@@ -179,18 +102,20 @@ export default function Footer() {
               <ul className="mt-6 space-y-4">
 
                 {[
-                  "Home",
-                  "Features",
-                  "Blog",
-                  "Contact",
+                  { title: "Home", href: "#home" },
+                  { title: "How It Works", href: "#how-it-works" },
+                  { title: "Features", href: "#features" },
+                  { title: "Blog", href: "#blog" },
+                  { title: "Our Mission", href: "#mission" },
+                  { title: "Contact", href: "#contact" },
                 ].map((item) => (
-                  <li key={item}>
+                  <li key={item.title}>
                     <a
-                      href="#"
+                      href={item.href}
                       className="group flex items-center gap-2 text-slate-600 hover:text-blue-600 transition"
                     >
                       <FaArrowRight className="text-xs group-hover:translate-x-1 transition" />
-                      {item}
+                      {item.title}
                     </a>
                   </li>
                 ))}
